@@ -24,7 +24,6 @@ export class App extends Component {
   componentDidMount() {
     const phoneBookArray = loadFromLocal(this.state.nameLocalStorage);
     if (!phoneBookArray) {
-      console.log(phoneBookArray);
       return console.log('LocalStorage is empty');
     } else {
       this.setState({ contacts: phoneBookArray });
