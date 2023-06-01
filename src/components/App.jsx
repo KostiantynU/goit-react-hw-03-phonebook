@@ -5,6 +5,7 @@ import { Section } from './AppStyled';
 import { PhoneBookForm } from './PhoneBookForm';
 import { Filter } from './Filter';
 import { PhoneBookList } from './PhoneBookList/PhoneBookList';
+import { saveToLocal, loadFromLocal } from './Services/localStorage';
 
 const INITIAL_STATE = {
   contacts: [
@@ -14,10 +15,25 @@ const INITIAL_STATE = {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   filter: '',
+  nameLocalStorage: 'phoneBook',
 };
 
 export class App extends Component {
   state = { ...INITIAL_STATE };
+
+  componentDidMount() {
+    const phoneBookArray = loadFromLocal(this.state.nameLocalStorage);
+    if (!phoneBookArray) {
+      console.log(phoneBookArray);
+      return console.log('LocalStorage is empty');
+    } else {
+      this.setState({ contacts: phoneBookArray });
+    }
+  }
+
+  componentDidUpdate() {
+    saveToLocal(this.state.nameLocalStorage, this.state.contacts);
+  }
 
   changeContacts = newContact => {
     if (
