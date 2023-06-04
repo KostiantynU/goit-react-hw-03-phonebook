@@ -27,7 +27,6 @@ export class App extends Component {
       return console.log('LocalStorage is empty');
     } else {
       this.setState({ contacts: phoneBookArray });
-      console.log(first);
     }
   }
 
