@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MainTitle } from './AppStyled';
-import { HTwo } from './PhoneBookList/PhoneBookListStyled';
+import { Title } from './PhoneBookList/PhoneBookListStyled';
 import { Section } from './AppStyled';
 import { PhoneBookForm } from './PhoneBookForm';
 import { Filter } from './Filter';
@@ -72,7 +72,7 @@ export class App extends Component {
       <Section>
         <MainTitle>Phonebook</MainTitle>
         <PhoneBookForm changeContacts={this.changeContacts} />
-        <HTwo>Contacts</HTwo>
+        <Title>Contacts</Title>
         <Filter handleChangeSearch={this.handleChangeSearch} />
         <PhoneBookList array={this.arrayWithSearch()} deleteItem={this.deleteItem} />
       </Section>

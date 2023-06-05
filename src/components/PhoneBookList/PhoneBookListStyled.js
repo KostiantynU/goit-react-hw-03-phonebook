@@ -4,7 +4,7 @@ export const DivContacts = styled.div`
   margin-left: auto;
   margin-right: auto;
 `;
-export const HTwo = styled.h2`
+export const Title = styled.h2`
   margin: 0.5em;
 `;
 export const ListContacts = styled.ul`
